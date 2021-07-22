@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function Circle (radius, color) {
+    this.getRadius = function () {
+      return radius
+    }
+    this.getArea = function () {
+      return Math.PI *radius * radius
+    }
+    this.getColor = function () {
+      return color
+    }
+  }
+  let hinh_tron = new Circle(parseInt(prompt("nhập bán kính ")),"Black")
+  let ban_kinh = hinh_tron.getRadius()
+  let dien_tich = hinh_tron.getArea()
+  let color = hinh_tron.getColor()
+  alert("Diện tích hình tròn bán kính "+ban_kinh+" là "+ dien_tich.toFixed(2)+" màu "+color)
+</script>
+</body>
+</html>
