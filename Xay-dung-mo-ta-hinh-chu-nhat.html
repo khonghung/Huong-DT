@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+
 <body>
-$END$
+<script>
+    function hinhchunhat(dai, rong) {
+        this.dai = dai;
+        this.rong = rong
+
+
+        this.setChieudai = function (dai) {
+            this.chieudai = dai
+        }
+        this.setChieurong = function (rong) {
+            this.chieurong = rong
+        }
+        this.getChieudai = function () {
+            return this.chieudai
+        }
+        this.getChieurong = function () {
+            return this.chieurong
+        }
+        this.getDientich = function () {
+            return this.chieurong * this.chieurong
+        }
+        this.getChuvi = function () {
+            return (this.chieurong + this.chieudai) * 2
+        }
+    }
+
+
+    let hinh_chu_nhat = new hinhchunhat()
+    let setChieudai = hinh_chu_nhat.setChieudai(parseInt(prompt("nhập chiều dài")))
+    let setChieurong = hinh_chu_nhat.setChieurong(parseInt(prompt("nhập chiều rộng ")))
+    let chieudai = hinh_chu_nhat.getChieudai()
+    let chieurong = hinh_chu_nhat.getChieurong()
+    let dientich = hinh_chu_nhat.getDientich()
+    let chuvi = hinh_chu_nhat.getChuvi()
+
+    document.write("chiều dài : " + chieudai + "  chiều rộng : " + chieurong + "<br>")
+    document.write("diện tích : " + dientich + "  chu vi : " + chuvi)
+</script>
 </body>
 </html>
+
+
