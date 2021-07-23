@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-
+<canvas id="mycanvas" width=200 height="200" style="border: 1px solid #de2121"></canvas>
 <body>
+
 <script>
-    function hinhchunhat(dai, rong) {
-        this.dai = dai;
-        this.rong = rong
 
 
+    function hinhchunhat() {
         this.setChieudai = function (dai) {
             this.chieudai = dai
         }
@@ -30,8 +29,8 @@
         this.getChuvi = function () {
             return (this.chieurong + this.chieudai) * 2
         }
-    }
 
+    }
 
     let hinh_chu_nhat = new hinhchunhat()
     let setChieudai = hinh_chu_nhat.setChieudai(parseInt(prompt("nhập chiều dài")))
@@ -43,6 +42,12 @@
 
     document.write("chiều dài : " + chieudai + "  chiều rộng : " + chieurong + "<br>")
     document.write("diện tích : " + dientich + "  chu vi : " + chuvi)
+
+    let hcn = document.getElementById("mycanvas")
+    let ctx = hcn.getContext("2d")
+    ctx.fillRect(100, 100, chieurong ,chieudai )
+
+
 </script>
 </body>
 </html>
