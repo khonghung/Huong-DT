@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+   function temperatur (C){
+       this.doC = C
+       this.getdoF = function (){
+           return (this.doC * 9/5) + 32
+       }
+       this.getdoK = function (){
+           return this.doC + 273.15
+       }
+   }
+   let tem = new temperatur(25)
+   let dof = tem.getdoF()
+   let dok = tem.getdoK()
+   document.write("nhiệt độ F " + dof + "  độ K " + dok)
+
+</script>
 </body>
 </html>
