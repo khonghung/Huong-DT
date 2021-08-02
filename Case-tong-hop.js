@@ -1,24 +1,86 @@
-// hàm tổng hợp
-function runBall() {
+//hàm random màu sắc
+function getRandomHex()
+{
+    return Math.floor(Math.random() * 255);
+}
+
+function getRandomColor()
+{
+    let red = getRandomHex();
+    let green = getRandomHex();
+    let blue = getRandomHex();
+    return "rgb(" + red + "," + blue + "," + green + ")";
+}
+
+
+//sử dụng sự kiện keydown
+document.addEventListener("keydown", function (event) {
+    console.log(event)
+    if (event.keyCode === 37) {
+        paddle.isLeft = true
+    }
+    else if(event.keyCode === 39)
+    {
+        paddle.isRight = true
+    }
+})
+
+
+//sử dụng sự kiện keyup
+document.addEventListener("keyup", function (event) {
+    console.log(event)
+    if (event.keyCode === 37) {
+        paddle.isLeft = false
+    }
+    else if (event.keyCode === 39)
+    {
+        paddle.isRight = false
+    }
+})
+
+
+//hiển thị chữ Score trong canvas
+function drawScore()
+{
+    ctx.font = "14pxArial"
+    ctx.fillStyle = getRandomColor()
+    ctx.fillText("Score:" + score, 8, 20);
+}
+
+
+
+//checkthắngthuacủauser
+function checkWinLose()
+{
+    if (gameWin) {
+        alert("YOUWIN")
+    } else {
+        alert("YOULOSE")
+    }
+}
+
+//hàmtổnghợp
+function runBall()
+{
     if (!gameOver) {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        drawScore() //tính điểm cho game
+        drawScore()//tínhđiểmchogame
 
-        drawball()  //vẽ bóng
+        drawball()//vẽbóng
 
-        bricks()  // vẽ gạch
+        bricks()//vẽgạch
 
-        balltouchbricks()  //sự kiện bóng chạm gạch
+        balltouchbricks()//sựkiệnbóngchạmgạch
 
-        drawpaddle()   // vẽ ván đỡ bóng
+        drawpaddle()//vẽvánđỡbóng
 
-        ballpaddle()    //sự kiện va chạm giữa bóng và ván
+        ballpaddle()//sựkiệnvachạmgiữabóngvàván
 
-        logicpaddle()  // logic va đập của ván
+        logicpaddle()//logicvađậpcủaván
 
-        logicball()    // logic xử lí va đập của bóng
+        logicball()//logicxửlívađậpcủabóng
 
-        position()   // vị trí, tọa độ của bóng
+        position()//vịtrí,tọađộcủabóng
 
 
         if (ball.y > canvas.height - ball.radius) {
